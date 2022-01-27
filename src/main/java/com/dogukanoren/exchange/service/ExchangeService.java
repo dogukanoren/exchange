@@ -46,10 +46,10 @@ public class ExchangeService {
     public void fillRatesFromAPI() {
 
         clearRates();
-
         ExchangeRate rates = restTemplate.getForObject(uri, ExchangeRate.class);
 
         fillRates(rates.getRates());
+
     }
 
 }
