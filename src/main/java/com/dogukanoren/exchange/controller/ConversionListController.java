@@ -13,7 +13,6 @@ import com.dogukanoren.exchange.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -32,10 +31,10 @@ public class ConversionListController {
     @Autowired
     ApiErrorService apiErrorService;
 
-    @RequestMapping("/conversion-list/{offSet}/{pageSize}")
+    @RequestMapping("/conversion-list/")
     public Page<Transaction> filterConversions(@RequestParam(value = "dateParam", required = false) String dateParam,
-            @RequestParam(value = "idParam", required = false) String idParam, @PathVariable("offSet") int offSet,
-            @PathVariable("pageSize") int pageSize) {
+            @RequestParam(value = "idParam", required = false) String idParam, @RequestParam("offSet") int offSet,
+            @RequestParam("pageSize") int pageSize) {
 
         // http://localhost:8080/api/conversion-list/1/2/?dateParam=2022-01-25
 
